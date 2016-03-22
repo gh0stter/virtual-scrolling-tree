@@ -1,0 +1,24 @@
+{
+  "name": "virtual-scrolling-tree",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/PepsRyuu/virtual-scrolling-tree.git"
+  },
+  "author": "Paul Sweeney",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/PepsRyuu/virtual-scrolling-tree/issues"
+  },
+  "homepage": "https://github.com/PepsRyuu/virtual-scrolling-tree",
+  "dependencies": {
+    "lamda": "^0.2.3",
+    "presenter": "^0.1.0",
+    "text": "git+ssh://git@github.com:requirejs/text"
+  }
+}

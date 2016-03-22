@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Virtual Scrolling Tree</title>
+    <script src="node_modules/lamda/lamda.js"></script>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        require.config({
+            baseUrl: "jsrc",
+            paths: {
+                "presenter": "../node_modules/presenter/presenter",
+                "text": "../node_modules/text/text"
+            }
+        });
+
+        require([
+            "VirtualScrollingTree"
+        ], function(VirtualScrollingTree) {
+            var tree = new VirtualScrollingTree();
+            tree.attach(container);
+            tree.resize();
+        });
+    </script>
+</body>
+</html>
