@@ -1,0 +1,19 @@
+.VirtualScrollingTree {
+    font-size: 0;
+    height: 100%;
+}
+
+.VirtualScrollingTree > div {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+}
+
+.VirtualScrollingTree-scrollbar {
+    overflow-y: scroll;
+}
+
+.VirtualScrollingTree-scrollbarContent {
+    width: 1px;
+    visibility: hidden;
+}

@@ -5,10 +5,55 @@
     <script src="node_modules/lamda/lamda.js"></script>
 </head>
 <body>
-    <div id="container"></div>
+    <div id="container" style="height: 400px"></div>
     <script>
+
+        var data = [];
+        var id = 0;
+        var totalRootItems = 1000;
+
+        var generateItemsForParent = function(parentObj, level) {
+            for (var i = 0; i < parentObj.children; i++) {
+                var obj = {
+                    id: id++,
+                    label: parentObj.label + "." + i,
+                    parent: parentObj.id,
+                    children: level !== 3? 5 : 0
+                };
+                data.push(obj);
+
+                if (obj.children) {
+                    generateItemsForParent(obj, level + 1);
+                }
+            }
+        };
+
+        generateItemsForParent({
+            id: null,
+            label: "Item ",
+            children: totalRootItems
+        }, 0);
+
+        function getData(query, success, error, idsOnly) {
+            var output = [];
+
+            query.forEach(function(query) {
+                var filteredItems = data.filter(function(obj) {
+                    return obj.parent === query.parent;
+                });
+
+                output.push({
+                    parent: query.parent,
+                    items: filteredItems.splice(query.offset, query.limit)
+                });
+
+            });
+
+            success(JSON.parse(JSON.stringify(output)));
+        }
+
         require.config({
-            baseUrl: "jsrc",
+            baseUrl: "src",
             paths: {
                 "presenter": "../node_modules/presenter/presenter",
                 "text": "../node_modules/text/text"
@@ -18,9 +63,12 @@
         require([
             "VirtualScrollingTree"
         ], function(VirtualScrollingTree) {
-            var tree = new VirtualScrollingTree();
+            var tree = new VirtualScrollingTree({
+                totalRootItems: totalRootItems,
+                getData: getData
+            });
             tree.attach(container);
-            tree.resize();
+            tree.redraw();
         });
     </script>
 </body>

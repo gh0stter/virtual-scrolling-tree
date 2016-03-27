@@ -56,11 +56,6 @@ define([
         var branchY;
         var branchHeight = 100;
 
-        var drawBranchBegin = function() {
-            this.ctx.fillStyle = colors.trunk;
-            this.ctx.beginPath();
-        }.bind(this);
-
         var drawLeftBranch = function() {
             var x = this.width / 2 - trunkWidth / 2 + 1;
             this.ctx.moveTo(x, branchY);
@@ -75,10 +70,6 @@ define([
             this.ctx.lineTo(x, branchY - 30);
         }.bind(this);
 
-        var drawBranchEnd = function() {
-            this.ctx.fill();
-        }.bind(this);
-
         var bottomOfTree = 200;
 
         // calcuate the position of the bottom most branch 
@@ -88,7 +79,8 @@ define([
         var branchIndex = Math.floor(this.scrollPos / 100);
 
         while (branchY > 0) {
-            drawBranchBegin();
+            this.ctx.fillStyle = colors.trunk;
+            this.ctx.beginPath();
             if (branchIndex % 2) {
                 drawRightBranch();
             } else {
@@ -96,7 +88,7 @@ define([
             }
             branchIndex++;
             branchY -= 100;
-            drawBranchEnd();
+            this.ctx.fill();
         }
 
         // Grass

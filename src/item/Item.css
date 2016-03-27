@@ -1,0 +1,22 @@
+.VirtualScrollingTree-Item {
+    height: 32px;
+}
+
+.VirtualScrollingTree-Item > div {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+}
+
+.VirtualScrollingTree-Item-expander {
+    width: 30px;
+    cursor: pointer;
+}
+
+.VirtualScrollingTree-Item-expander::before {
+    content: attr(data-expander-icon);
+}
+
+.VirtualScrollingTree-Item-label {
+    width: calc(100% - 30px);
+}
