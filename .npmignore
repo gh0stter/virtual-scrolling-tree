@@ -1,0 +1,11 @@
+jsrc/
+src/
+node_modules/
+target/
+test/
+build-tasks.js
+build.sh
+index.html
+require.config.js
+*.tgz
+*.tar.gz

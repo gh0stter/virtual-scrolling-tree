@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Virtual Scrolling Tree</title>
+    <script src="require.config.js"></script>
     <script src="node_modules/lamda/lamda.js"></script>
 </head>
 <body>
@@ -52,16 +53,8 @@
             success(JSON.parse(JSON.stringify(output)));
         }
 
-        require.config({
-            baseUrl: "src",
-            paths: {
-                "presenter": "../node_modules/presenter/presenter",
-                "text": "../node_modules/text/text"
-            }
-        });
-
         require([
-            "VirtualScrollingTree"
+            "virtual-scrolling-tree"
         ], function(VirtualScrollingTree) {
             var tree = new VirtualScrollingTree({
                 totalRootItems: totalRootItems,

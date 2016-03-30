@@ -1,24 +1,29 @@
 {
-  "name": "virtual-scrolling-tree",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/PepsRyuu/virtual-scrolling-tree.git"
-  },
-  "author": "Paul Sweeney",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/PepsRyuu/virtual-scrolling-tree/issues"
-  },
-  "homepage": "https://github.com/PepsRyuu/virtual-scrolling-tree",
-  "dependencies": {
-    "lamda": "^0.2.3",
-    "presenter": "^0.1.0",
-    "text": "git+ssh://git@github.com:requirejs/text"
-  }
+    "name": "virtual-scrolling-tree",
+    "version": "0.0.0",
+    "description": "",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/PepsRyuu/virtual-scrolling-tree.git"
+    },
+    "author": "Paul Sweeney",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/PepsRyuu/virtual-scrolling-tree/issues"
+    },
+    "homepage": "https://github.com/PepsRyuu/virtual-scrolling-tree",
+    "peerDependencies": {
+        "lamda": "^0.2.3",
+        "presenter": "^0.1.0"
+    },
+    "devDependencies": {
+        "chai": "~1.9.1",
+        "lamda": "^0.2.3",
+        "lamda-optimizer": "^0.2.3",
+        "mocha": "~1.18.2",
+        "mocha-phantomjs": "^4.0.2",
+        "presenter": "^0.1.0",
+        "shelljs": "^0.6.0",
+        "text": "git+ssh://git@github.com:requirejs/text"
+    }
 }
