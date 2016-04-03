@@ -18,7 +18,22 @@ switch(task) {
         var config = parseConfig();
         config.header = "/*\n" +fs.readFileSync("LICENSE", "utf8") + "\n*/";
         config.minify = true;
-        optimizer(config, "./", function(){});
+
+        var vstConfig = JSON.parse(JSON.stringify(config));
+        vstConfig.modules = [{
+            name: "virtual-scrolling-tree",
+            location: "virtual-scrolling-tree/VirtualScrollingTree",
+            exclude: ["text", "presenter"]
+        }]
+        optimizer(vstConfig, "dist", function(){});
+
+        // var ctConfig = JSON.parse(JSON.stringify(config));
+        // ctConfig.modules = [{
+        //     name: "canvas-virtual-scrolling-tree",
+        //     location: "canvas-virtual-scrolling-tree/VirtualScrollingTree",
+        //     exclude: ["text", "presenter"]
+        // }];
+        // optimizer(ctConfig, "target/demo/canvas-vst", function(){})
         break;
 
     case "get-version":
@@ -35,8 +50,11 @@ switch(task) {
 
         if (versionType === "major") {
             currVersion[0]++;
+            currVersion[1] = 0;
+            currVersion[2] = 0;
         } else if (versionType === "minor") {
             currVersion[1]++;
+            currVersion[2] = 0;
         } else {
             currVersion[2]++;
         }

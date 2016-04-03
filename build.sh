@@ -9,13 +9,24 @@ npm install
 
 # Clean
 rm -rf *.tgz
-rm -rf virtual-scrolling-tree.js
+rm -rf target
 
 # Test
 node_modules/mocha-phantomjs/bin/mocha-phantomjs test/index.html
 
 # Optimize
 node build-tasks.js optimize
+
+# Build Demo
+mkdir -p target/demo/vst
+cp index.html target/demo/vst/index.html
+cp require.config.demo.js target/demo/vst/require.config.js
+cp package.demo.json target/demo/vst/package.json
+cd target/demo/vst
+npm install
+npm install ../../../
+cd ../../../
+
 
 if [ "$#" -ne 0 ] && [ $1 = "--release" ]
 then
@@ -29,5 +40,7 @@ then
     git tag "${VERSION}" --force
     git push origin HEAD:master --tags
     npm publish
+
+    ## TODO : Clone website, add demo and publish it
 fi
 

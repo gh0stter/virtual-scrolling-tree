@@ -13,16 +13,16 @@
     },
     "homepage": "https://github.com/PepsRyuu/virtual-scrolling-tree",
     "peerDependencies": {
-        "lamda": "^0.2.3",
-        "presenter": "^0.1.0"
+        "lamda": "^0.3.3",
+        "presenter": "^0.2.0"
     },
     "devDependencies": {
         "chai": "~1.9.1",
-        "lamda": "^0.2.3",
-        "lamda-optimizer": "^0.2.3",
+        "lamda": "^0.3.3",
+        "lamda-optimizer": "^0.3.3",
         "mocha": "~1.18.2",
         "mocha-phantomjs": "^4.0.2",
-        "presenter": "^0.1.0",
+        "presenter": "^0.2.0",
         "shelljs": "^0.6.0",
         "text": "git+ssh://git@github.com:requirejs/text"
     }
