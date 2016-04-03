@@ -1,4 +1,5 @@
 var optimizer = require("lamda-optimizer");
+var fork = require('child_process').fork;
 var fs = require("fs");
 
 var task = process.argv[2];
@@ -14,6 +15,21 @@ function parsePackageJson() {
 }
 
 switch(task) {
+    case "test": 
+        var express = require("express");
+        var app = express();
+        app.use('/', express.static(__dirname));
+        app.use(function (req, res) {
+            res.status(404).send("File Not Found");
+        });
+        var server = app.listen(8585, function() {
+            var tester = fork("node_modules/mocha-phantomjs/bin/mocha-phantomjs", ["http://127.0.0.1:8585/test/index.html"]);
+            tester.on("exit", function(code) {
+                process.exit(code);
+            });
+        });
+        break;
+
     case "optimize":
         var config = parseConfig();
         config.header = "/*\n" +fs.readFileSync("LICENSE", "utf8") + "\n*/";
@@ -25,7 +41,7 @@ switch(task) {
             location: "virtual-scrolling-tree/VirtualScrollingTree",
             exclude: ["text", "presenter"]
         }]
-        optimizer(vstConfig, "dist", function(){});
+        optimizer(vstConfig, "target", function(){});
 
         // var ctConfig = JSON.parse(JSON.stringify(config));
         // ctConfig.modules = [{

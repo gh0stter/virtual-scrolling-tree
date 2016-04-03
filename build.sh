@@ -10,12 +10,15 @@ npm install
 # Clean
 rm -rf *.tgz
 rm -rf target
+rm -rf dist
 
 # Test
-node_modules/mocha-phantomjs/bin/mocha-phantomjs test/index.html
+node build-tasks.js test
 
 # Optimize
 node build-tasks.js optimize
+mkdir dist
+cp target/virtual-scrolling-tree.js dist/virtual-scrolling-tree.min.js
 
 # Build Demo
 mkdir -p target/demo/vst
@@ -41,6 +44,13 @@ then
     git push origin HEAD:master --tags
     npm publish
 
-    ## TODO : Clone website, add demo and publish it
+    # Clone website and push demo
+    cd target
+    git clone git@github.com/PepsRyuu/pepsryuu.github.io
+    cp -R demo pepsryuu.github.io/
+    cd pepsryuu.github.io
+    git add --all
+    git commit -am "Added demo for virtual-scrolling-tree@${VERSION}"
+    git push origin master
 fi
 

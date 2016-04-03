@@ -1,6 +1,6 @@
 {
     "name": "virtual-scrolling-tree",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "",
     "repository": {
         "type": "git",
@@ -17,6 +17,7 @@
         "presenter": "^0.2.0"
     },
     "devDependencies": {
+        "express": "^4.13.4",
         "chai": "~1.9.1",
         "lamda": "^0.3.3",
         "lamda-optimizer": "^0.3.3",

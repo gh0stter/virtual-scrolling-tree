@@ -11,3 +11,4 @@ require.config.demo.js
 package.demo.json
 *.tgz
 *.tar.gz
+.travis.yml
