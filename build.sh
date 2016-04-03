@@ -46,7 +46,7 @@ then
 
     # Clone website and push demo
     cd target
-    git clone git@github.com/PepsRyuu/pepsryuu.github.io
+    git clone git@github.com/PepsRyuu/pepsryuu.github.io.git
     cp -R demo pepsryuu.github.io/
     cd pepsryuu.github.io
     git add --all
