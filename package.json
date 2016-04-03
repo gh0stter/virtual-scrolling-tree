@@ -24,6 +24,6 @@
         "mocha-phantomjs": "^4.0.2",
         "presenter": "^0.2.0",
         "shelljs": "^0.6.0",
-        "text": "git+ssh://git@github.com:requirejs/text"
+        "requirejs-text": "2.0.12"
     }
 }
